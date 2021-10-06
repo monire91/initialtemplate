@@ -1,0 +1,97 @@
+@mixin push--auto {
+    margin: {
+      left: auto;
+      right: auto;
+    }
+  }
+  @mixin font-style($size: false, $color: false, $weight: false, $lh: false, $textAlign: false) {
+    @if $size {
+      font-size: $size;
+    }
+    @if $color {
+      color: $color;
+    }
+    @if $weight {
+      font-weight: $weight;
+    }
+    @if $lh {
+      line-height: $lh;
+    }
+    @if $textAlign {
+      text-align: $textAlign;
+    }
+  }
+  @mixin input-placeholder {
+    &.placeholder {
+      @content;
+    }
+    &:-moz-placeholder {
+      @content;
+    }
+    &::-moz-placeholder {
+      @content;
+    }
+    &:-ms-input-placeholder {
+      @content;
+    }
+    &::-webkit-input-placeholder {
+      @content;
+    }
+  }
+  @mixin flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @mixin flex-center-column {
+    @include flex-center;
+    flex-direction: column;
+  }
+  
+  @mixin flex-center-vert {
+    display: flex;
+    align-items: center;
+  }
+  
+  @mixin flex-center-horiz {
+    display: flex;
+    justify-content: center;
+  }
+  @mixin flex-center-column-horiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  @mixin flex-center-column-vert {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  @mixin box($width, $height: $width, $bgColor: false, $radius: false) {
+    width: $width;
+    height: $height;
+    @if $radius {
+      border-radius: $radius;
+    }
+    @if $bgColor {
+      background-color: $bgColor;
+    }
+  }
+  @mixin pseudo($width: 100%, $height: 100%, $display: inline-block, $pos: absolute, $content: "") {
+    content: $content;
+    display: $display;
+    position: $pos;
+    @include box($width, $height);
+  }
+  @mixin absolute-center-vert {
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+  }
